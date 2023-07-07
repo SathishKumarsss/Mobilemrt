@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+
+    <style>
+        *{
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+    
+        
+      /*Navbar css styles*/
+      nav{
+        top: 0;
+      position: sticky;
+      
+      }
+      nav ul{
+          float: right;
+          margin-right: 20px;
+      
+      }
+      nav ul li{
+          display: inline-block;
+          line-height: 80px;
+          margin: 0 5px;
+      }
+      nav ul li a{
+          color: white;
+          font-size: 17px;
+          text-transform: uppercase;
+          padding: 7px 13px;
+          border-radius: 3px;
+      }
+      a.active,a:hover{
+          background: #1b9bff;
+          transition: .5s;
+      }
+      nav{
+          background-color: #0077B5;
+          height: 80px;
+          width: 100%;
+      }
+      label.logo{
+          color: wheat;
+          font-size: 35px;
+          line-height: 80px;
+          padding: 0 100px;
+          font-weight: bold;
+      }
+       /*footer css styles*/
+      footer{
+      
+        background: #140B5C;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+      }
+      footer::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 100px;
+        height: 1px;
+        width: 100%;
+        background: #AFAFB6;
+      }
+      footer .content{
+        max-width: 1250px;
+        margin: auto;
+        padding: 30px 40px 40px 40px;
+      }
+      footer .content .top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 50px;
+      }
+      .content .top .logo-details{
+        color: #fff;
+        font-size: 30px;
+      }
+      .content .top .media-icons{
+        display: flex;
+      }
+      .content .top .media-icons a{
+        height: 40px;
+        width: 40px;
+        margin: 0 8px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        font-size: 17px;
+        text-decoration: none;
+        transition: all 0.4s ease;
+      }
+      .top .media-icons a:nth-child(1){
+        background: #4267B2;
+      }
+      .top .media-icons a:nth-child(1):hover{
+        color: #4267B2;
+        background: #fff;
+      }
+      .top .media-icons a:nth-child(2){
+        background: #1DA1F2;
+      }
+      .top .media-icons a:nth-child(2):hover{
+        color: #1DA1F2;
+        background: #fff;
+      }
+      .top .media-icons a:nth-child(3){
+        background: #E1306C;
+      }
+      .top .media-icons a:nth-child(3):hover{
+        color: #E1306C;
+        background: #fff;
+      }
+      .top .media-icons a:nth-child(4){
+        background: #0077B5;
+      }
+      .top .media-icons a:nth-child(4):hover{
+        color: #0077B5;
+        background: #fff;
+      }
+      .top .media-icons a:nth-child(5){
+        background: #FF0000;
+      }
+      .top .media-icons a:nth-child(5):hover{
+        color: #FF0000;
+        background: #fff;
+      }
+      footer .content .link-boxes{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      footer .content .link-boxes .box{
+        width: calc(100% / 5 - 10px);
+      }
+      .content .link-boxes .box .link_name{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .link-boxes .box .link_name::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 35px;
+        background: #fff;
+      }
+      .content .link-boxes .box li{
+        margin: 6px 0;
+        list-style: none;
+      }
+      .content .link-boxes .box li a{
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: all 0.4s ease
+      }
+      .content .link-boxes .box li a:hover{
+        opacity: 1;
+        text-decoration: underline;
+      }
+      .content .link-boxes .input-box{
+        margin-right: 55px;
+      }
+      .link-boxes .input-box input{
+        height: 40px;
+        width: calc(100% + 55px);
+        outline: none;
+        border: 2px solid #AFAFB6;
+        background: #140B5C;
+        border-radius: 4px;
+        padding: 0 15px;
+        font-size: 15px;
+        color: #fff;
+        margin-top: 5px;
+      }
+      .link-boxes .input-box input::placeholder{
+        color: #AFAFB6;
+        font-size: 16px;
+      }
+      .link-boxes .input-box input[type="button"]{
+        background: #fff;
+        color: #140B5C;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        margin: 4px 0;
+        opacity: 0.8;
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+      .input-box input[type="button"]:hover{
+        opacity: 1;
+      }
+      footer .bottom-details{
+        width: 100%;
+        background: #0F0844;
+      }
+      footer .bottom-details .bottom_text{
+        max-width: 1250px;
+        margin: auto;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .bottom-details .bottom_text span,
+      .bottom-details .bottom_text a{
+        font-size: 14px;
+        font-weight: 300;
+        color: #fff;
+        opacity: 0.8;
+        text-decoration: none;
+      }
+      .bottom-details .bottom_text a:hover{
+        opacity: 1;
+        text-decoration: underline;
+      }
+      .bottom-details .bottom_text a{
+        margin-right: 10px;
+      }
+      @media (max-width: 900px) {
+        footer .content .link-boxes{
+          flex-wrap: wrap;
+        }
+        footer .content .link-boxes .input-box{
+          width: 40%;
+          margin-top: 10px;
+        }
+      }
+      @media (max-width: 700px){
+        footer{
+          position: relative;
+        }
+        .content .top .logo-details{
+          font-size: 26px;
+        }
+        .content .top .media-icons a{
+          height: 35px;
+          width: 35px;
+          font-size: 14px;
+          line-height: 35px;
+        }
+        footer .content .link-boxes .box{
+          width: calc(100% / 3 - 10px);
+        }
+        footer .content .link-boxes .input-box{
+          width: 60%;
+        }
+        .bottom-details .bottom_text span,
+        .bottom-details .bottom_text a{
+          font-size: 12px;
+        }
+      }
+      @media (max-width: 520px){
+        footer::before{
+          top: 145px;
+        }
+        footer .content .top{
+          flex-direction: column;
+        }
+        .content .top .media-icons{
+          margin-top: 16px;
+        }
+        footer .content .link-boxes .box{
+          width: calc(100% / 2 - 10px);
+        }
+        footer .content .link-boxes .input-box{
+          width: 100%;
+        }
+      }
+      .product-img{
+        border: 2px solid black;
+        width: 250px;
+        height: 250px;
+      }
+    /* Login form css style */
+    h2 {
+      
+      text-align: center;
+      color: black;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    /*
+    p {
+      position: relative;
+    }*/
+    
+    
+    #login-form-wrap {
+      background-color: #fff;
+      width: 50%;
+      margin: 30px auto;
+      text-align: center;
+      padding: 20px 0 0 0;
+      border-radius: 4px;
+      box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+    }
+    
+    #login-form {
+      padding: 0 60px;
+      
+    }
+    
+    input {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      outline: none;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 4px;
+    }
+    
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0 0 0 10px;
+      margin: 0;
+      color: #8a8b8e;
+      border: 1px solid #c2c0ca;
+      font-style: normal;
+      font-size: 16px;
+      -webkit-appearance: none;
+         -moz-appearance: none;
+              appearance: none;
+     /* position: relative;
+     */
+      display: inline-block;
+      background: none;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      border-color: #3ca9e2;
+    }
+    input[type="text"]:focus:invalid,
+    input[type="email"]:focus:invalid {
+      color: #cc1e2b;
+      border-color: #cc1e2b;
+    }
+    input[type="text"]:valid ~ .validation,
+    input[type="email"]:valid ~ .validation {
+      display: block;
+      border-color: #0C0;
+    }
+    input[type="text"]:valid ~ .validation span,
+    input[type="email"]:valid ~ .validation span {
+      background: #0C0;
+      position: absolute;
+      border-radius: 6px;
+    }
+    input[type="text"]:valid ~ .validation span:first-child,
+    input[type="email"]:valid ~ .validation span:first-child {
+      top: 30px;
+      left: 14px;
+      width: 20px;
+      height: 3px;
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+    }
+    input[type="text"]:valid ~ .validation span:last-child,
+    input[type="email"]:valid ~ .validation span:last-child {
+      top: 35px;
+      left: 8px;
+      width: 11px;
+      height: 3px;
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+    }
+    
+    .validation {
+      display: none;
+      position: absolute;
+      content: " ";
+      height: 60px;
+      width: 30px;
+      right: 15px;
+      top: 0px;
+    }
+    
+    input[type="submit"] {
+      border: none;
+      display: block;
+      background-color: #3ca9e2;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+      font-size: 18px;
+      /*
+      position: relative;
+      */
+      display: inline-block;
+      cursor: pointer;
+      text-align: center;
+    }
+    input[type="submit"]:hover {
+      background-color: #329dd5;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+    
+    #create-account-wrap {
+      background-color: #eeedf1;
+      color: #8a8b8e;
+      font-size: 14px;
+      width: 100%;
+      padding: 10px 0;
+      border-radius: 0 0 4px 4px;
+    }
+    /* about us */
+    #about-us{
+    height: 100vh;
+    width: 100%;
+    padding: 90px 0;
+    background-image: linear-gradient(black,deepskyblue);
+    }  
+    .pic{
+      height: auto;
+      width: 302px;
+    }
+    .about{
+      width: 1130px;
+      max-width: 85%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    
+    }
+    .text{
+      width: 540px;
+    
+    }
+    .text h2{
+      font-size: 50px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    
+    }
+    .text h5{
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    span{
+      color: #4070f4;
+    
+    }
+    .text p{
+      font-size: 18px;
+      line-height: 25px;
+      letter-spacing: 1px;
+    
+    }
+    
+    /*mobile details css*/
+    
+    .content_img{
+                    
+                      width: 200px;
+                      height: 200px;
+                      float: left;
+                      margin-right: 10px;
+                  }
+                  .content_img div{
+                    
+                      bottom: 0;
+                      right: 0;
+                      background: black;
+                      color: white;
+                      margin-bottom: 5px;
+                      opacity: 0;
+                      visibility: hidden;
+                      -webkit-transition:visibilty 0s,opacity 0.5s linear;
+                      transition: visibility 0s,opacity 0.5s linear;
+                  }
+                  .content_img:hover{
+                      cursor: pointer;
+                  }
+                  .content_img:hover div{
+                      width: 150px;
+                      padding: 8px 15px;
+          visibility: visible;
+          opacity: 0.7;
+                  }
+      
+                          
+      </style>
+</head>
+<body>
+    <nav>
+        <label class="logo">Mobile Mart</label>
+        <ul>
+          <li><a href="index.html" class="active"><i class="fa fa-arrow-left" style="font-size:24px; padding: 3px;"></i>Back to Home</a></li>
+          <li><a href="#about-us"><i class="fa fa-male" style="font-size:24px; padding: 3px;"></i>About</a></li>
+          <li><a href="#contact"><i class="fa fa-address-card" style="font-size:24px; padding: 3px;"></i>Contact</a></li>
+          <li><a href="#login-form-wrap"><i class="fa fa-sign-in" style="font-size:24px; padding: 3px;"></i>Login</a></li>
+        </ul>
+      </nav>
+      
+    <header class="intro" style="text-align: center; background-color: chartreuse; margin-top: 20px;">
+        <h1>This is Our Mobile Mart Shopping Cart.</h1>
+        <h2>Enjoy To Shop your Mobiles</h2>
+        </header>
+           
+            
+        <main>
+            
+            <div class="container" style="background-image: linear-gradient(black,deepskyblue); border-radius: 4px solid black;">
+             <div class="row" style="border: 2px solid black;">
+               <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                 <h4 style="font-size: 30px; color: #FF0000; text-align: center;">Products</h4>
+                 <div class="content_img">
+                <img src="images/redmi 1.jpg" alt="" width="100%" height="100%" style="border-radius: 120px;border: 5px solid orangered;">
+                   <div>DETAILS: RAM:3GB ROM:126GB BATTERY: 50000 WARRANTY:2 YEARS</div>
+              </div>
+                 <div class="row">
+                   <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                     <div class="shadow-sm card mb-3 product">
+                       <img class="product-img" src="images/redmicart.jpg"  alt="prd1" onmouseover="animateImg(this)"
+                       onmouseout="normalImg(this)"/>
+                       <div class="card-body">
+                         <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">Redmi</h5>
+                         <p class="card-text text-success product-price"style="font-size: 18px; color: white">40000 Rs.</p>
+                         <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button"
+                           data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="content_img">
+                    <img src="images/vivo logo.png" alt="" width="100%" height="100%" style="border-radius: 100px;border: 5px solid blue;">
+                     <div>DETAILS: RAM:6GB ROM:128GB BATTERY:4500 WARRANTY:1 YEARS</div>
+                </div>
+                   <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                     <div class="shadow-sm card mb-3 product">
+                       <img class="product-img" src="images/vivocart.jpg" alt="prd2" onmouseover="animateImg(this)"
+                       onmouseout="normalImg(this)"/>
+                       <div class="card-body">
+                        <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">Vivo</h5>
+                         <p class="card-text text-success product-price"style="font-size: 18px; color: white">30000 Rs.</p>
+                         <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button"
+                         data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="content_img">
+                  <img src="images/oppo logo.png" alt="" width="100%" height="100%" style="border-radius: 100px; border: 5px solid mediumspringgreen;">
+                   <div>DETAILS: RAM:6GB ROM:245GB BATTERY:50000 WARRANTY:3 YEARS</div>
+              </div>
+                 <div class="row">
+                   <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                     <div class="shadow-sm card mb-3 product">
+                       <img class="product-img" src="images/oppocart.jpg" alt="prd3" onmouseover="animateImg(this)"
+                       onmouseout="normalImg(this)"/>
+                       <div class="card-body">
+                        <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">Oppo</h5>
+                         <p class="card-text text-success product-price"style="font-size: 18px; color: white">20000 Rs.</p>
+                         <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button" 
+                         data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="content_img">
+                    <img src="images/redmi 1.jpg" alt="" width="100%" height="100%"style="border-radius: 120px;border: 5px solid orangered;">
+                     <div>DETAILS: RAM:3GB ROM:126GB BATTERY:2000 WARRANTY:2 YEARS</div>
+                </div>
+                   <div class="row">
+                     <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                       <div class="shadow-sm card mb-3 product">
+                         <img class="product-img" src="images/redmicart2.jpg" alt="prd4" onmouseover="animateImg(this)"
+                         onmouseout="normalImg(this)"/>
+                         <div class="card-body">
+                          <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">Redmi</h5>
+                           <p class="card-text text-success product-price"style="font-size: 18px; color: white">15000 Rs.</p>
+                           <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button" 
+                           data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="content_img">
+                      <img src="images/infinix logo.webp" alt="" width="100%" height="100%" style="border-radius: 100px; border: 5px solid black;">
+                       <div>DETAILS: RAM:8GB ROM:256GB BATTERY: 43000 WARRANTY:2 YEARS</div>
+                  </div>
+                     <div class="row">
+                       <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                         <div class="shadow-sm card mb-3 product">
+                           <img class="product-img" src="images/infinixcart.webp" alt="prd5" onmouseover="animateImg(this)"
+                           onmouseout="normalImg(this)"/>
+                           <div class="card-body">
+                            <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">Infinix</h5>
+                             <p class="card-text text-success product-price"style="font-size: 18px; color: white">25000 Rs.</p>
+                             <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button" 
+                             data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                           </div>
+                         </div>
+                       </div>
+                       <div class="content_img">
+                        <img src="images/one plus logo.jfif" alt="" width="100%" height="100%" style="border-radius: 100px; border: 5px solid red;">
+                         <div>DETAILS: RAM:6GB ROM:126GB BATTERY: 50000 WARRANTY:3 YEARS</div>
+                    </div>
+                       <div class="row">
+                         <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                           <div class="shadow-sm card mb-3 product">
+                             <img class="product-img" src="images/onepluscart.webp" alt="prd6" onmouseover="animateImg(this)"
+                             onmouseout="normalImg(this)"/>
+                             <div class="card-body">
+                              <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">One Plus</h5>
+                               <p class="card-text text-success product-price"style="font-size: 18px; color: white">18000 Rs.</p>
+                               <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button" 
+                               data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                             </div>
+                           </div>
+                         </div>
+                         <div class="content_img">
+                          <img src="images/redmi 1.jpg" alt="" width="100%" height="100%" style="border-radius: 120px;border: 5px solid orangered;">
+                           <div>DETAILS: RAM:3GB ROM:62GB BATTERY:40000 WARRANTY:2 YEARS</div>
+                      </div>
+                         <div class="row">
+                           <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                             <div class="shadow-sm card mb-3 product">
+                               <img class="product-img" src="images/redmicart3.avif" alt="prd7" onmouseover="animateImg(this)"
+                               onmouseout="normalImg(this)"/>
+                               <div class="card-body">
+                                <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">Redmi</h5>
+                                 <p class="card-text text-success product-price"style="font-size: 18px; color: white">14000 Rs.</p>
+                                 <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button" 
+                                 data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="content_img">
+                            <img src="images/poco logo.png" alt="" width="100%" height="100%" style="border-radius: 100px; border: 5px solid yellowgreen;">
+                             <div>DETAILS: RAM:3GB ROM:32GB BATTERY: 32000 WARRANTY:1 Year</div>
+                        </div>
+                           <div class="row">
+                             <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                               <div class="shadow-sm card mb-3 product">
+                                 <img class="product-img" src="images/pococart.jpeg" alt="prd8" onmouseover="animateImg(this)"
+                                 onmouseout="normalImg(this)"/>
+                                 <div class="card-body">
+                                  <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">Poco</h5>
+                                   <p class="card-text text-success product-price"style="font-size: 18px; color: white">10000 Rs.</p>
+                                   <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button" 
+                                   data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                                 </div>
+                               </div>
+                             </div>
+                             <div class="content_img">
+                              <img src="images/apple logo.png" alt="" width="100%" height="100%" style="border-radius: 100px; border: 5px solid white;">
+                               <div>DETAILS: RAM:3GB ROM:126GB BATTERY: 30000 WARRANTY:2 Year</div>
+                          </div>
+                             <div class="row">
+                               <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                                 <div class="shadow-sm card mb-3 product">
+                                   <img class="product-img" src="images/applecart.webp" alt="prd9" onmouseover="animateImg(this)"
+                                   onmouseout="normalImg(this)"/>
+                                   <div class="card-body">
+                                    <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">Apple</h5>
+                                     <p class="card-text text-success product-price"style="font-size: 18px; color: white">20000 Rs.</p>
+                                     <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button" 
+                                     data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                                   </div>
+                                 </div >
+                               </div>
+                               <div class="content_img">
+                                <img src="images/vivo logo.png" alt="" width="100%" height="100%" style="border-radius: 100px;border: 5px solid blue;">
+                                 <div>DETAILS: RAM:12GB ROM:256GB BATTERY:6000 WARRANTY:4 Year</div>
+                            </div>
+                               <div class="row">
+                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" style="display: flex; justify-content: center; align-items: center;">
+                                   <div class="shadow-sm card mb-3 product">
+                                     <img class="product-img" src="images/vivocart2.jfif" alt="prd10" onmouseover="animateImg(this)"
+                                     onmouseout="normalImg(this)"/>
+                                     
+                                     <div class="card-body">
+                                      <h5 class="card-title text-info bold product-name" style="font-size: 18px; color: white">Vivo</h5>
+                                       
+                                      <p class="card-text text-success product-price"style="font-size: 18px; color: white">35000 Rs.</p>
+                                       <button class="btn badge badge-pill badge-secondary mt-2 float-right" type="button" 
+                                       data-action="add-to-cart" style="background-color: #0077B5; width: 30%; height: 30px; margin: 10px; color: white; border: 1px solid black;">Add to cart</button>
+                                     </div>
+                                   </div>
+                                 </div>
+                             </div>
+                 </div>
+               
+            
+               <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12" style="display: flex; justify-content: center; align-items: center;">
+                 <h4 class="badge-pill badge-light mt-3 mb-3 p-2 text-center" style="color: black; font-size: 20px; font-weight: bold;"><i class='fas fa-cart-arrow-down' style='font-size:24px'></i>Cart</h4>
+                 <div class="cart" style="border: 2px solid black; width: 350px; background-color:sandybrown"></div>
+               </div>
+             </div>
+           </div>    
+            
+        </main>
+        <section id="about-us">
+          
+          <div class="about">
+            <img src="https://media.tenor.com/2LBt_oMtikkAAAAC/i-phone-hot-lava.gif" alt="mygif" >
+            <div class="text">
+                
+              <h2>About Us</h2>
+              <h5>Mobile Mart <span>Enjoy To Visit Anytime </span></h5>
+              <p>Thankyou for visit our website and this is used to shop your own mobile and easy to purchase.</p>
+              
+            </div>
+          </div>
+        </section>
+        <h2 id="clicklogin" style="margin-top: 20px;">Welcome</h2>
+  <div id="login-form-wrap"style="margin-top: 100px;"><span style="font-size: 25px;">Login</span>
+    <form id="login-form" style="margin-top:100px;">
+      <p style="margin-top: 40px;">
+        <label for="" style="font-size: 20px;font-weight: bold;">Username</label>
+      <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i>
+      </p>
+      <p style="margin-top: 40px;">
+        <label for=""style="font-size: 20px;font-weight: bold;">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+      <input type="submit" id="login" value="Login">
+      </p>
+    </form>
+    <div id="create-account-wrap">
+      <p style="margin-bottom: 200px;">Not a member? <a href="#">Create Account</a><p>
+    </div><!--create-account-wrap-->
+  </div><!--login-form-wrap-->
+  <!-- partial -->
+  
+   
+     
+    <footer>
+        <h1 id="contact" style="color: white; text-align: center;">Contact Us</h1>
+        <div class="content">
+          <div class="top">
+            <div class="logo-details">
+              <i class="fa fa-maxcdn" style="font-size:36px"></i>
+              <span class="logo_name">Mobile Mart</span>
+            </div>
+            <div class="media-icons">
+              <a href="#"><i class="fa fa-facebook-square" style="font-size:24px"></i></a>
+              <a href="#"><i class="fa fa-twitter-square" style="font-size:24px"></i></a>
+              <a href="#"><i class="fa fa-instagram" style="font-size:24px"></i></a>
+              <a href="#"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
+              <a href="#"><i class="fa fa-youtube" style="font-size:24px"></i></a>
+            </div>
+          </div>
+          <div class="link-boxes">
+            <ul class="box">
+              <li class="link_name">Company</li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Our products</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Our Brances</li>
+              <li><a href="#">chennai</a></li>
+              <li><a href="#">Madurai</a></li>
+              <li><a href="#">Coimbatore</a></li>
+              <li><a href="#">Pollachi</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Catagory</li>
+              <li><a href="#">Apple</a></li>
+              <li><a href="#">Samsung</a></li>
+              <li><a href="#">Vivo</a></li>
+              <li><a href="#">Oppo etc.</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Offers</li>
+              <li><a href="#">under 50000</a></li>
+              <li><a href="#">under 40000</a></li>
+              <li><a href="#">under 30000</a></li>
+              <li><a href="#">under 20000</a></li>
+            </ul>
+            <ul class="box input-box">
+              <li class="link_name">Sign Up</li>
+              <li><input type="text" placeholder="Enter your email"></li>
+              <li><input type="button" value="Sign Up"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom-details">
+          <div class="bottom_text">
+            <span class="copyright_text">Copyright &#169; 2023 <a href="#">MobileMart.</a>All rights reserved</span>
+            <span class="policy_terms">
+              <a href="#">Privacy policy</a>
+              <a href="#">Terms & condition</a>
+            </span>
+          </div>
+        </div>
+        <script>
+          "use strict";                        
+            let cart = [];
+            let cartTotal = 0;
+            const cartDom = document.querySelector(".cart");
+            const addtocartbtnDom = document.querySelectorAll('[data-action="add-to-cart"]');
+            
+            addtocartbtnDom.forEach(addtocartbtnDom => {
+              addtocartbtnDom.addEventListener("click", () => {
+                const productDom = addtocartbtnDom.parentNode.parentNode;
+                const product = {
+                  img: productDom.querySelector(".product-img").getAttribute("src"),
+                  name: productDom.querySelector(".product-name").innerText,
+                  price: productDom.querySelector(".product-price").innerText,
+                  quantity: 1
+               };
+            
+            const IsinCart = cart.filter(cartItem => cartItem.name === product.name).length > 0;
+            if (IsinCart === false) {
+              cartDom.insertAdjacentHTML("beforeend",`
+              <div class="d-flex flex-row shadow-sm card cart-items mt-2 mb-3 animated flipInX">
+                <div class="p-2">
+                    <img src="${product.img}" alt="${product.name}" style="max-width: 50px;"/>
+                </div>
+                <div class="p-2 mt-3">
+                    <p class="text-info cart_item_name">${product.name}</p>
+                </div>
+                <div class="p-2 mt-3">
+                    <p class="text-success cart_item_price">${product.price}</p>
+                </div>
+                <div class="p-2 mt-3 ml-auto">
+                    <button class="btn badge badge-secondary" type="button" data-action="increase-item">&plus;
+                </div>
+                <div class="p-2 mt-3">
+                  <p class="text-success cart_item_quantity">${product.quantity}</p>
+                </div>
+                <div class="p-2 mt-3">
+                  <button class="btn badge badge-info" type="button" data-action="decrease-item">&minus;
+                </div>
+                <div class="p-2 mt-3">
+                  <button class="btn badge badge-danger" type="button" data-action="remove-item">&times;
+                </div>
+              </div> `);
+            
+              if(document.querySelector('.cart-footer') === null){
+                cartDom.insertAdjacentHTML("afterend",  `
+                  <div class="d-flex flex-row shadow-sm card cart-footer mt-2 mb-3 animated flipInX">
+                    <div class="p-2">
+                      <button class="btn badge-danger" type="button" data-action="clear-cart">Clear Cart
+                    </div>
+                    <div class="p-2 ml-auto">
+                      <button class="btn badge-dark" type="button" data-action="check-out">Pay <span class="pay"></span> 
+                        &#10137;
+                    </div>
+                  </div>`); }
+            
+                addtocartbtnDom.innerText = "In cart";
+                addtocartbtnDom.disabled = true;
+                cart.push(product);
+            
+                const cartItemsDom = cartDom.querySelectorAll(".cart-items");
+                cartItemsDom.forEach(cartItemDom => {
+            
+                if (cartItemDom.querySelector(".cart_item_name").innerText === product.name) {
+            
+                  cartTotal += parseInt(cartItemDom.querySelector(".cart_item_quantity").innerText) 
+                  * parseInt(cartItemDom.querySelector(".cart_item_price").innerText);
+                  document.querySelector('.pay').innerText = cartTotal + " Rs.";
+            
+                  // increase item in cart
+                  cartItemDom.querySelector('[data-action="increase-item"]').addEventListener("click", () => {
+                    cart.forEach(cartItem => {
+                      if (cartItem.name === product.name) {
+                        cartItemDom.querySelector(".cart_item_quantity").innerText = ++cartItem.quantity;
+                        cartItemDom.querySelector(".cart_item_price").innerText = parseInt(cartItem.quantity) *
+                        parseInt(cartItem.price) + " Rs.";
+                        cartTotal += parseInt(cartItem.price)
+                        document.querySelector('.pay').innerText = cartTotal + " Rs.";
+                      }
+                    });
+                  });
+            
+                  // decrease item in cart
+                  cartItemDom.querySelector('[data-action="decrease-item"]').addEventListener("click", () => {
+                    cart.forEach(cartItem => {
+                      if (cartItem.name === product.name) {
+                        if (cartItem.quantity > 1) {
+                          cartItemDom.querySelector(".cart_item_quantity").innerText = --cartItem.quantity;
+                          cartItemDom.querySelector(".cart_item_price").innerText = parseInt(cartItem.quantity) *
+                          parseInt(cartItem.price) + " Rs.";
+                          cartTotal -= parseInt(cartItem.price)
+                          document.querySelector('.pay').innerText = cartTotal + " Rs.";
+                        }
+                      }
+                    });
+                  });
+            
+                  //remove item from cart
+                  cartItemDom.querySelector('[data-action="remove-item"]').addEventListener("click", () => {
+                    cart.forEach(cartItem => {
+                      if (cartItem.name === product.name) {
+                          cartTotal -= parseInt(cartItemDom.querySelector(".cart_item_price").innerText);
+                          document.querySelector('.pay').innerText = cartTotal + " Rs.";
+                          cartItemDom.remove();
+                          cart = cart.filter(cartItem => cartItem.name !== product.name);
+                          addtocartbtnDom.innerText = "Add to cart";
+                          addtocartbtnDom.disabled = false;
+                      }
+                      if(cart.length < 1){
+                        document.querySelector('.cart-footer').remove();
+                      }
+                    });
+                  });
+            
+                  //clear cart
+                  document.querySelector('[data-action="clear-cart"]').addEventListener("click" , () => {
+                    cartItemDom.remove();
+                    cart = [];
+                    cartTotal = 0;
+                    if(document.querySelector('.cart-footer') !== null){
+                      document.querySelector('.cart-footer').remove();
+                    }
+                    addtocartbtnDom.innerText = "Add to cart";
+                    addtocartbtnDom.disabled = false;
+                  });
+            
+                  document.querySelector('[data-action="check-out"]').addEventListener("click" , () => {
+                    if(document.getElementById('paypal-form') === null){
+                      checkOut();
+                    }
+                  });
+                }
+              });
+            }
+            });
+            });
+            
+            function animateImg(img) {
+              img.classList.add("animated","shake");
+            }
+            
+            function normalImg(img) {
+              img.classList.remove("animated","shake");
+            }
+        </script>
+      
+       
+    
+</body>
+</html>
